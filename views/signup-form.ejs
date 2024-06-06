@@ -1,0 +1,31 @@
+<%- include('header') -%>
+
+<h1>Sign Up</h1>
+<form action="" method="POST">
+    <label for="first">First name</label>
+    <input name="first" value="<%= (undefined==locals.user) ? '' : user.first %>" />
+    <br><br>
+    <label for="last">Last name</label>
+    <input name="last" value="<%= undefined===locals.user ? '' : user.last %>" />
+    <br><br>
+    <label for="username">Username</label>
+    <input name="username" value="<%= undefined===locals.user ? '' : user.username %>" />
+    <br><br>
+    <label for="password">Password</label>
+    <input name="password" type="password" value="<%= undefined===locals.user ? '' : user.password %>" />
+    <br><br>
+    <label for="conpass">Confirm Password</label>
+    <input name="conpass" type="password" />
+    <br><br>
+    <input type="checkbox" id="admin" name="admin">
+    <label for="admin">Admin</label><br><br>
+    <button>Sign Up</button>
+</form>
+
+<% if(locals.errors) {%>
+    <% for(let err of errors) {%>
+        <h3><%= err.msg %></h3>
+    <% } %>
+<% }%>
+
+<%- include('footer') -%>

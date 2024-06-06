@@ -1,0 +1,16 @@
+<%- include('header') -%>
+
+<a href="/log-out">LOG OUT</a><br><br>
+
+<h2>Create New Message</h2>
+<form action="/new-msg" method="post">
+    <label for="title">Title</label>
+    <input name="title" id="title">
+    <br><br>
+    <label for="msg">Message</label>
+    <input name="msg" id="msg">
+    <br><br>
+    <button>CREATE</button>
+</form>
+    
+<%- include('footer') -%>

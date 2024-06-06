@@ -1,0 +1,14 @@
+<%- include('header') -%>
+
+<a href="/">HOME</a>
+<a href="/log-out">LOG OUT</a><br><br>
+<%= locals.msg %>
+
+<h2>Join the Club</h2>
+<form action="/join-club" method="post">
+    <label for="code">Enter secret passcode</label>
+    <input name="code" id="code">
+    <button>CONFIRM</button>
+</form>
+    
+<%- include('footer') -%>
