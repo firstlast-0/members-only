@@ -29,8 +29,13 @@ router.get('/join-club', function (req, res, next) {
 
 router.post('/join-club', asyncHandler(async (req, res, next) => {
     if (req.body.code === 'qqq') {
-        await User.findByIdAndUpdate(req.user.id, {status: 'Club Member'}, {});
-        res.render('join-club', {msg: 'Successfully joined!'});
+        let user = await User.findById(req.user.id);
+        if (user.status === 'Club Member') {
+            res.render('join-club', {msg: "You're already a member"});
+        } else {
+            await User.findByIdAndUpdate(req.user.id, {status: 'Club Member'}, {});
+            res.render('join-club', {msg: 'Successfully joined!'});
+        }       
     }
 
     res.render('join-club', {msg: 'Wrong passcode'});

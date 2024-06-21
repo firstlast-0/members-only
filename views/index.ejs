@@ -1,7 +1,7 @@
 <%- include('header') -%>
 
-<% if (currentUser) {%>
-    <h1>WELCOME BACK <%= currentUser.username %> (<%= currentUser.status %>) (<%= (currentUser.Admin) ? 'Admin' : '' %>)</h1>    
+<% if (currentUser) { %>
+    <h1>WELCOME BACK <%= currentUser.username %> (<%= currentUser.status %>) <%= (currentUser.Admin) ? '(Admin)' : '' %></h1>    
     <a href="/new-msg">CREATE NEW MESSAGE</a>
     <a href="/join-club">JOIN CLUB</a>
     <a href="/log-out">LOG OUT</a>
@@ -11,8 +11,8 @@
         <div>
             Title: <%= msg.title %><br>
             Message: <%= msg.text %><br>
-            Date: <%= (currentUser.status === 'Member' && currentUser.admin === null) ? '???' : msg.date %><br>
-            By: <%= (currentUser.status === 'Member'  && currentUser.admin === null) ? '???' : msg.by.username %><br>
+            Date: <%= (currentUser.status === 'Member' && !currentUser.Admin) ? '???' : msg.date %><br>
+            By: <%= (currentUser.status === 'Member'  && !currentUser.Admin) ? '???' : msg.by.username %><br>
             <% if (currentUser.Admin) {%>
                 <form action="" method="post">
                     <input type="hidden" name="id" value="<%= msg.id %>">

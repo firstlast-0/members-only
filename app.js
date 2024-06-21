@@ -11,7 +11,7 @@ const bcrypt = require('bcryptjs');
 const User = require('./models/user');
 const Message = require('./models/message');
 
-const mongoDb = process.env.dbUrl;
+const mongoDb = process.env.dbURL;
 mongoose.connect(mongoDb);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongo connection error'));
