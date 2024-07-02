@@ -22,6 +22,25 @@
     <label for="admin">Admin</label><br><br>
     <button>Sign Up</button>
 </form>
+<br>
+<form action="/log-in" method="POST">
+    or
+    <br><br>
+    <input type="hidden" name="password" value="j">
+    <button name="username" value="John">Continue as Member</button>
+</form>
+
+<form action="/log-in" method="POST">
+    <br>
+    <input type="hidden" name="password" value="j">
+    <button name="username" value="Jane">Continue as Club Member</button>
+</form>
+
+<form action="/log-in" method="POST">
+    <br>
+    <input type="hidden" name="password" value="m">
+    <button name="username" value="Mike">Continue as Admin</button>
+</form>
 
 <% if(locals.errors) {%>
     <% for(let err of errors) {%>

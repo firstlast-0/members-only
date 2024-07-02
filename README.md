@@ -5,7 +5,7 @@
 - Members can enter a secret passcode to become Club Members
 - Passcode to join the club is "qqq"
 
-## All User Types
+## User Types
 
 - Member: can post & see messages but not the date & author
 - Club Member: same as Member but date & author is visible
